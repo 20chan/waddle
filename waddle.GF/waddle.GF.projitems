@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>8e30c808-7093-4644-8872-81fa1022e979</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>waddle.GF</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Alignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Component.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Camera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SceneLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Resources.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SpriteBatchUIExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Time.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameRun.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+  </ItemGroup>
+</Project>
