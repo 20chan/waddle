@@ -37,6 +37,7 @@ namespace waddle.GF {
 
         protected override void Update(GameTime gameTime) {
             if (!_sceneStartCalled) {
+                _sceneStartCalled = true;
                 _currentScene.Start();
             }
             _currentScene.Update(gameTime);

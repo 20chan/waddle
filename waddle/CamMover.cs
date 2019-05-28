@@ -11,17 +11,8 @@ namespace waddle {
 
             var deltaPos = new Vector2();
 
-            if (Input.IsKeyPress(Keys.Left)) {
-                deltaPos.X -= camSpeed;
-            }
-            if (Input.IsKeyPress(Keys.Right)) {
-                deltaPos.X += camSpeed;
-            }
-            if (Input.IsKeyPress(Keys.Up)) {
-                deltaPos.Y -= camSpeed;
-            }
-            if (Input.IsKeyPress(Keys.Down)) {
-                deltaPos.Y += camSpeed;
+            if (Input.IsMouseRightPress()) {
+                deltaPos += -60 * Input.MouseDeltaPos.ToVector2();
             }
 
             deltaPos *= Time.DeltaTime;

@@ -42,6 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CamMover.cs" />
+    <Compile Include="Grid\GridCell.cs" />
+    <Compile Include="Grid\GridSystem.cs" />
     <Compile Include="InGameScene.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />

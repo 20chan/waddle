@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using static Microsoft.Xna.Framework.Input.ButtonState;
 
 namespace waddle.GF {
@@ -6,11 +7,29 @@ namespace waddle.GF {
         KeyboardState _curKey, _prevKey;
         MouseState _curMouse, _prevMouse;
 
+        public Point PrevMousePos { get; private set; }
+        public Point MousePos { get; private set; }
+        public Point MouseDeltaPos { get; private set; }
+
+        public Vector2 CamRelativeMousePos { get; private set; }
+        public Vector2 CamRelativePrevMousePos { get; private set; }
+        public Vector2 CamRelativeMouseDeltaPos { get; private set; }
+
         public void Update() {
             _prevKey = _curKey;
             _prevMouse = _curMouse;
             _curKey = Keyboard.GetState();
             _curMouse = Mouse.GetState();
+
+            PrevMousePos = MousePos;
+            MousePos = _curMouse.Position;
+            MouseDeltaPos = MousePos - PrevMousePos;
+
+            var camTransform = Components.Camera.main.CreateTransform();
+
+            CamRelativePrevMousePos = CamRelativeMousePos;
+            CamRelativeMousePos = Vector2.Transform(MousePos.ToVector2(), Matrix.Invert(camTransform));
+            CamRelativeMouseDeltaPos = CamRelativeMousePos - CamRelativePrevMousePos;
         }
 
         public bool IsKeyDown(Keys key) {

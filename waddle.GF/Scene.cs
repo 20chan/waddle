@@ -17,6 +17,7 @@ namespace waddle.GF {
             Time = new Time();
             Input = new Input();
             baseLayer = AddLayer();
+            Camera.main = baseLayer.cam;
         }
 
         public virtual void Start() {

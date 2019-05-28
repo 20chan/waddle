@@ -12,12 +12,16 @@ namespace waddle.GF {
         }
 
         public static void DrawLine(this SpriteBatch sb, Vector2 p1, Vector2 p2, Color color, float border = 1f) {
-            var angle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X) + MathHelper.ToRadians(90);
+            var angle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
             var length = Vector2.Distance(p1, p2);
             var scale = new Vector2(length, border);
             var offset = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * border * .5f;
             var fromPos = p1 - offset;
             sb.Draw(dummy, fromPos, null, color, angle, Vector2.Zero, scale, SpriteEffects.None, 0);
+        }
+
+        public static void DrawLine(this SpriteBatch sb, float x1, float y1, float x2, float y2, Color color, float border = 1f) {
+            DrawLine(sb, new Vector2(x1, y1), new Vector2(x2, y2), color, border);
         }
 
         public static void DrawRectangle(this SpriteBatch sb, Rectangle rect, Color color, int border = 1) {

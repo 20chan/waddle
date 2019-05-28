@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace waddle.GF.Components {
     public class Camera : Component {
+        public static Camera main;
         public Rectangle ViewRect { get; set; }
 
         Vector2 pos => Transform.Position;
